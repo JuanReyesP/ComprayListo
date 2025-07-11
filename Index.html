@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComprayListo R&V - Inicio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #dbecf7; color: #333333; }
+
+    header {
+  background: linear-gradient(90deg, #003b6e 0%, #c2e9fb 100%);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.header-nav a:hover {
+  opacity: 0.8;
+}
+    .search-bar {
+      background: #fff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .search-bar input {
+      width: 100%;
+      max-width: 600px;
+      padding: 10px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+    }
+
+    .main-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 30px;
+  background: linear-gradient(90deg, #dbeafe, #e0f2fe);
+  border-bottom: 1px solid #bcdff8;
+  gap: 30px;
+}
+
+.main-banner .info {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 36px;
+  color: #004785;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: #1976d2;
+  margin-bottom: 15px;
+}
+
+.hero-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.main-banner button {
+  background: #004785;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.main-banner button:hover {
+  background: #003364;
+}
+
+.banner-image img {
+  max-width: 750px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .main-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-image img {
+    margin-top: 20px;
+  }
+}
+    .categories-section {
+      padding: 30px;
+    }
+    .categories-section h3 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #222;
+      text-align: center;
+    }
+    .category-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .category {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .category img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    footer {
+  background: #004785;
+  color: #fff;
+  padding: 40px 20px 10px;
+  font-size: 15px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #cde0f7;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+    }
+
+    @media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header-left {
+    justify-content: center;
+  }
+  .header-nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div class="header-left">
+    <img src="https://previews.123rf.com/images/danilzorin/danilzorin1803/danilzorin180300142/97068520-online-shop-online-store-logo-logotype-for-business-isolated-vector-illustration.jpg" alt="Logo de la tienda" class="logo">
+    <h1>ComprayListo R&V</h1>
+  </div>
+  <nav class="header-nav">
+    <a href="inicio.html">🏠 Inicio</a>
+    <a href="productos.html">🏭 Productos</a>
+    <a href="carrito.html">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    <a href="contacto.html">📞 Contacto</a>
+    <a href="https://wa.me/5350283334" target="_blank" style="position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; padding: 12px 16px; border-radius: 50px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 16px; text-decoration: none; z-index: 999;">
+  💬 WhatsApp
+</a>
+    <a href="Usuario.html">👤 Usuario</a>
+    </nav>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Buscar en Mi Tienda..." oninput="buscarProducto()">
+  </div>
+
+  <section class="main-banner">
+  <div class="info">
+    <h1 class="hero-title">🏪 Bienvenidos a ComprayListo R&V</h1>
+    <h2 class="hero-subtitle">Tu tienda virtual de confianza</h2>
+    <p class="hero-text">
+      Encuentra los mejores productos de cocina, tecnología, hogar y mucho más. Calidad, buenos precios y atención personalizada.
+    </p>
+    <button onclick="location.href='productos.html'">Explorar productos</button>
+  </div>
+  <div class="banner-image">
+    <img src="https://i0.wp.com/graficatraslasierra.com/wp-content/uploads/2022/02/header-tiendavirtual-banner.png?fit=1640%2C624&ssl=1" alt="Compras online">
+  </div>
+</section>
+
+  <section style="padding: 40px 20px;">
+  <h3 style="text-align: center; font-size: 26px; margin-bottom: 30px;">✨ Productos Recomendados</h3>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    <div style="background: white; border-radius: 12px; width: 220px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoZAkapErLddFi55FCisaWKzeMGpwtg-Fjr59RxneMGIAnudXI" style="width:100%; height:150px; object-fit:cover; border-radius: 10px;" alt="Freidora">
+      <h4 style="margin: 10px 0 5px;">Freidora de Aire</h4>
+      <p style="color: #004785;">$80 USD</p>
+    </div>
+    <div style="background: white; border-radius: 12px; width: 220px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQujE_IQ8KeI8P3ehuA_MCoS0JBuovMN5IdfLcXA-l_9JoBr2s" style="width:100%; height:150px; object-fit:cover; border-radius: 10px;" alt="Cafetera">
+      <h4 style="margin: 10px 0 5px;">Cafetera 6 Tazas</h4>
+      <p style="color: #004785;">$50 USD</p>
+    </div>
+  </div>
+</section>
+
+  <section class="categories-section">
+    <h3> Categorías Destacadas</h3>
+    <div class="category-list">
+      <div class="category">
+        <img src="https://miro.medium.com/v2/resize:fit:1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg" alt="Tecnología">
+        <p>Tecnología</p>
+      </div>
+      <div class="category">
+        <img src="https://edifica.com.pe/blog/wp-content/uploads/conoce-siete-electrodomesticos-imprescindibles-cocina-portada.jpg" alt="Electrodomésticos">
+        <p>Electrodomésticos</p>
+      </div>
+      <div class="category">
+        <img src="https://cocineo.com.mx/wp-content/uploads/2021/08/utensilios-cocina-1-kEKE-1200x630abc.jpg" alt="Cocina">
+        <p>Cocina</p>
+      </div>
+      <div class="category">
+        <img src="https://noticias.bidcom.com.ar/wp-content/uploads/2023/10/Samsung-vs.-Motorola-1.jpg" alt="Celulares">
+        <p>Celulares</p>
+    </div>
+  </div>
+</section>
+
+<section style="background: #f1f9ff; padding: 40px 20px; margin-top: 40px;">
+  <h3 style="text-align: center; font-size: 26px; margin-bottom: 20px;">🧠 Tips de Compras</h3>
+  <ul style="max-width: 700px; margin: auto; list-style: none; padding: 0; font-size: 16px;">
+    <li style="margin-bottom: 10px;">📦 Revisa las especificaciones técnicas antes de finalizar el pedido.</li>
+    <li style="margin-bottom: 10px;">🕐 Realiza tus pedidos con tiempo si necesitas entrega rápida.</li>
+  </ul>
+</section>
+
+<section style="padding: 40px 20px; background: #f0f8ff;">
+  <h3 style="text-align: center; font-size: 26px; margin-bottom: 30px;">💬 Lo que dicen nuestros clientes</h3>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: auto;">
+    <div style="background: white; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;">
+      <p style="font-style: italic;">“Excelente atención, mis productos llegaron súper rápido. ¡Volveré a comprar!”</p>
+      <strong>- Ana G.</strong>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;">
+      <p style="font-style: italic;">“Muy buenos precios y variedad. Todo llegó en perfecto estado.”</p>
+      <strong>- Carlos R.</strong>
+    </div>
+  </div>
+</section>
+
+<section style="background: #e6f7ff; padding: 30px 20px;">
+  <h3 style="text-align: center; font-size: 26px; margin-bottom: 30px;">📊 Nuestras cifras</h3>
+  <div style="display: flex; justify-content: center; gap: 40px; text-align: center;">
+    <div>
+      <h4 style="font-size: 32px; color: #007acc;">+500</h4>
+      <p>Clientes satisfechos</p>
+    </div>
+    <div>
+      <h4 style="font-size: 32px; color: #007acc;">+1200</h4>
+      <p>Productos vendidos</p>
+    </div>
+    <div>
+      <h4 style="font-size: 32px; color: #007acc;">4.9★</h4>
+      <p>Calificación promedio</p>
+    </div>
+  </div>
+</section>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>ComprayListo R&V</h3>
+      <p>Tienda virtual de confianza con los mejores productos del hogar.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contáctanos</h4>
+      <p>📞 +53 5028 3334</p>
+      <p>📩 juansireyes98@gmail.com</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/?size=512&id=47936&format=png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/87/87390.png" alt="Instagram"></a>
+        <a href="#"><img src="https://img.icons8.com/?size=512&id=44418&format=png" alt="WhatsApp"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 ComprayListo R&V. Todos los derechos reservados.</p>
+  </div>
+</footer>
+  </script>
+</body>
+</html>

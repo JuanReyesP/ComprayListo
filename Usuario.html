@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Cuenta - Mr. and Mrs. Reyes</title>
+  <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f9fbff;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #003b6e, #c2e9fb);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-nav a.active {
+  text-decoration: underline;
+}
+
+.user-page {
+  display: flex;
+  flex-direction: row;
+  min-height: 80vh;
+}
+
+.sidebar {
+  width: 240px;
+  background: #003b6e;
+  color: white;
+  padding: 20px;
+  border-right: 3px solid #003364;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: #003364;
+}
+
+.contenido {
+  flex: 1;
+  padding: 30px;
+  background: white;
+}
+
+.contenido h2 {
+  margin-bottom: 15px;
+  color: #004785;
+}
+
+footer {
+  background: #004785;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid #003364;
+  }
+
+  .contenido {
+    padding: 20px;
+  }
+
+  .header-nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .header-left {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  header {
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="https://previews.123rf.com/images/danilzorin/danilzorin1803/danilzorin180300142/97068520-online-shop-online-store-logo-logotype-for-business-isolated-vector-illustration.jpg" alt="Logo" class="logo" />
+      <h1>Mr. and Mrs. Reyes</h1>
+    </div>
+    <nav class="header-nav">
+      <a href="inicio.html">🏠 Inicio</a>
+      <a href="productos.html">🏭 Productos</a>
+      <a href="carrito.html">🛒 Carrito</a>
+      <a href="usuario.html" class="active">👤 Mi Cuenta</a>
+      <a href="https://wa.me/5350283334" target="_blank" style="position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; padding: 12px 16px; border-radius: 50px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 16px; text-decoration: none; z-index: 999;">
+      💬 WhatsApp
+    </a>
+    </nav>
+  </header>
+
+  <main class="user-page">
+    <aside class="sidebar">
+      <h2>👤 Mi Cuenta</h2>
+      <ul>
+        <li onclick="mostrarSeccion('perfil')">📝 Editar perfil</li>
+        <li onclick="mostrarSeccion('historial')">🧾 Historial de compras</li>
+        <li onclick="mostrarSeccion('favoritos')">❤️ Favoritos</li>
+        <li onclick="mostrarSeccion('seguimiento')">📦 Seguimiento de pedidos</li>
+        <li onclick="mostrarSeccion('configuracion')">⚙️ Configuración</li>
+        <li onclick="mostrarSeccion('soporte')">📩 Soporte</li>
+        <li onclick="cerrarSesion()">🚪 Cerrar sesión</li>
+      </ul>
+    </aside>
+
+    <section class="contenido" id="contenido-usuario">
+      <!-- Aquí se cargará el contenido dinámico según la opción seleccionada -->
+      <h2>Bienvenido a tu cuenta</h2>
+      <p>Selecciona una opción en el menú para empezar.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ComprayListo R&V. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+      // Firebase config (reemplaza con tu config real)
+const firebaseConfig = {
+  apiKey: "AIzaSyD0WnuiG7e0Vki8mcTNRsVzBQzQnQSVUtA",
+  authDomain: "tiendareyes-bc174.firebaseapp.com",
+  projectId: "tiendareyes-bc174",
+  storageBucket: "tiendareyes-bc174.firebasestorage.app",
+  messagingSenderId: "560209134108",
+  appId: "1:560209134108:web:168a9f9d7da46fb4ded5d9",
+  measurementId: "G-4RLN1WFMDP"
+};
+
+// Inicializa Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Maneja el panel de navegación
+document.querySelectorAll('.sidebar li').forEach(item => {
+  item.addEventListener('click', () => {
+    const seccionId = item.getAttribute('data-seccion');
+    mostrarSeccion(seccionId);
+
+    document.querySelectorAll('.sidebar li').forEach(el => el.classList.remove('activo'));
+    item.classList.add('activo');
+  });
+});
+
+function mostrarSeccion(id) {
+  document.querySelectorAll('.contenido > section').forEach(sec => {
+    sec.style.display = sec.id === id ? 'block' : 'none';
+  });
+}
+
+// Rellenar datos del perfil desde Firebase Auth
+auth.onAuthStateChanged(user => {
+  if (user) {
+    document.getElementById("userEmail").textContent = user.email;
+
+    // Cargar perfil desde Firestore
+    db.collection("usuarios").doc(user.uid).get().then(doc => {
+      if (doc.exists) {
+        const datos = doc.data();
+        document.getElementById("userName").value = datos.nombre || "";
+        document.getElementById("userPhone").value = datos.telefono || "";
+      }
+    });
+
+  } else {
+    window.location.href = "login.html"; // Redirige si no ha iniciado sesión
+  }
+});
+
+// Guardar cambios del perfil
+document.getElementById("guardarPerfil").addEventListener("click", () => {
+  const user = auth.currentUser;
+  if (user) {
+    const datos = {
+      nombre: document.getElementById("userName").value,
+      telefono: document.getElementById("userPhone").value
+    };
+    db.collection("usuarios").doc(user.uid).set(datos, { merge: true })
+      .then(() => alert("Perfil actualizado correctamente"));
+  }
+});
+
+// Simular historial de compras (puedes conectarlo a tu colección de órdenes)
+function cargarHistorial() {
+  const lista = document.getElementById("listaHistorial");
+  lista.innerHTML = "<li>Pedido #001 - 2 productos - $95 USD</li><li>Pedido #002 - 1 producto - $45 USD</li>";
+}
+cargarHistorial();
+
+// Simular favoritos
+function cargarFavoritos() {
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  const contenedor = document.getElementById("listaFavoritos");
+  contenedor.innerHTML = favoritos.length
+    ? favoritos.map(f => `<li>${f}</li>`).join("")
+    : "<li>No tienes productos en favoritos.</li>";
+}
+cargarFavoritos();
+
+// Simular seguimiento de pedido
+document.getElementById("formSeguimiento").addEventListener("submit", e => {
+  e.preventDefault();
+  const codigo = document.getElementById("codigoSeguimiento").value.trim();
+  document.getElementById("resultadoSeguimiento").textContent = codigo
+    ? `Estado del pedido ${codigo}: En camino 📦`
+    : "Por favor ingresa un código válido.";
+});
+
+// Cerrar sesión
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  auth.signOut().then(() => {
+    window.location.href = "login.html";
+  });
+});
+
+function cargarPedidos() {
+  const user = firebase.auth().currentUser;
+  if (!user) return;
+
+  const tbody = document.querySelector("#tabla-pedidos tbody");
+  tbody.innerHTML = "<tr><td colspan='4'>Cargando...</td></tr>";
+
+  db.collection("usuarios").doc(user.uid).collection("pedidos")
+    .orderBy("fecha", "desc")
+    .get()
+    .then(snapshot => {
+      if (snapshot.empty) {
+        tbody.innerHTML = "<tr><td colspan='4'>No hay pedidos registrados.</td></tr>";
+        return;
+      }
+
+      tbody.innerHTML = "";
+      snapshot.forEach(doc => {
+        const p = doc.data();
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${p.nombre}</td>
+          <td>$${p.precio}</td>
+          <td>${p.cantidad}</td>
+          <td>${p.fecha?.toDate().toLocaleDateString()}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    })
+    .catch(error => {
+      console.error("Error al cargar pedidos:", error);
+      tbody.innerHTML = "<tr><td colspan='4'>Error al obtener datos.</td></tr>";
+    });
+}
+</script>
+</body>
+</html>

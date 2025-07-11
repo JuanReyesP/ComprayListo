@@ -1,0 +1,416 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito de Compras</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f6fb;
+      margin: 0;
+      padding: 0;
+    }
+    body { background: #fcfdff; color: #333; }
+     header {
+  background: linear-gradient(90deg, #003b6e 0%, #c2e9fb 100%);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.header-nav a:hover {
+  opacity: 0.8;
+}
+    .cart-container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 15px;
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-item-details h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .cart-item-details p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .cart-total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+    .cart-count-box {
+      text-align: right;
+      max-width: 900px;
+      margin: auto;
+      font-size: 16px;
+      color: #555;
+    }
+    .btn-area {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .send-btn,
+    .clear-btn {
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+    .send-btn {
+      background: #4caf50;
+      color: white;
+    }
+    .send-btn:hover {
+      background: #388e3c;
+    }
+    .clear-btn {
+      background: #f44336;
+      color: white;
+    }
+    .clear-btn:hover {
+      background: #c62828;
+    }
+    .remove-btn {
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .remove-btn:hover {
+      background: #e91e63;
+    }
+    .empty-msg {
+      text-align: center;
+      font-size: 18px;
+      color: #777;
+      margin-top: 40px;
+    }
+    footer {
+  background: #004785;
+  color: #fff;
+  padding: 40px 20px 10px;
+  font-size: 15px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #cde0f7;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+    }
+
+    @media (max-width: 600px) {}
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header-left {
+    justify-content: center;
+  }
+  .header-nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="https://previews.123rf.com/images/danilzorin/danilzorin1803/danilzorin180300142/97068520-online-shop-online-store-logo-logotype-for-business-isolated-vector-illustration.jpg" alt="Logo de la tienda" class="logo">
+      <h1>ComprayListo R&V</h1>
+    </div>
+    <nav class="header-nav">
+      <a href="inicio.html">🏠 Inicio</a>
+      <a href="productos.html">🏭 Productos</a>
+      <a href="carrito.html">🛒 Carrito (<span id="cart-count">0</span>)</a>
+      <a href="contacto.html">📞 Contacto</a>
+      <a href="Usuario.html">👤 Usuario</a>
+    </nav>
+    <a href="https://wa.me/5350283334" target="_blank" style="position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; padding: 12px 16px; border-radius: 50px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 16px; text-decoration: none; z-index: 999;">
+      💬 WhatsApp
+    </a>
+  </header>
+
+  <div class="cart-container" id="cart-container"></div>
+  <div class="cart-count-box" id="cart-items-total"></div>
+  <div class="cart-total" id="cart-total"></div>
+
+  <div class="btn-area">
+    <button class="send-btn" onclick="sendToWhatsApp()">📤 Enviar Pedido por WhatsApp</button>
+    <button class="clear-btn" onclick="clearCart()">🗑 Vaciar Carrito</button>
+  </div>
+
+  <section style="background: #f1f9ff; padding: 40px 20px; margin-top: 40px;">
+  <h3 style="text-align: center; font-size: 26px; margin-bottom: 20px;">🧠 Tips de Compras</h3>
+  <ul style="max-width: 700px; margin: auto; list-style: none; padding: 0; font-size: 16px;">
+    <li style="margin-bottom: 10px;">✅👆 Después de haber hecho la compra puede enviarme el pedido utilizando el botón de "Enviar pedido por Whatsapp".</li>
+    <li style="margin-bottom: 10px;">🕐 No olvides ralizar tus pedidos con tiempo si necesitas entrega rápida.</li>
+  </ul>
+</section>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Mr. and Mrs. Reyes</h3>
+      <p>Tienda virtual de confianza con los mejores productos del hogar.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contáctanos</h4>
+      <p>📞 +53 5028 3334</p>
+      <p>📩 juansireyes98@gmail.com</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/?size=512&id=47936&format=png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/87/87390.png" alt="Instagram"></a>
+        <a href="#"><img src="https://img.icons8.com/?size=512&id=44418&format=png" alt="WhatsApp"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Mr. and Mrs. Reyes. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCartCount();
+
+    function updateCartCount() {
+      const total = cart.reduce((acc, p) => acc + p.cantidad, 0);
+      const badge = document.getElementById("cart-count");
+      if (badge) badge.textContent = total;
+    }
+
+    function renderCart() {
+      const container = document.getElementById("cart-container");
+      const totalBox = document.getElementById("cart-total");
+      const countBox = document.getElementById("cart-items-total");
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="empty-msg">Tu carrito está vacío.</p>';
+        totalBox.textContent = "";
+        countBox.textContent = "";
+        return;
+      }
+
+      let total = 0;
+      let totalItems = 0;
+      container.innerHTML = "";
+
+      cart.forEach((p, index) => {
+        const item = document.createElement("div");
+        item.className = "cart-item";
+        item.innerHTML = `
+          <button class="remove-btn" onclick="removeItem(${index})">❌</button>
+          <img src="${p.img}" alt="${p.nombre}">
+          <div class="cart-item-details">
+            <h3>${p.nombre}</h3>
+            <p>Precio: $${p.precio} USD</p>
+            <p>Cantidad: ${p.cantidad}</p>
+            <p>Subtotal: $${(p.precio * p.cantidad).toFixed(2)} USD</p>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${index})">❌</button>
+        `;
+        container.appendChild(item);
+        total += p.precio * p.cantidad;
+        totalItems += p.cantidad;
+      });
+
+      countBox.textContent = `🧾 Total de productos: ${totalItems}`;
+      totalBox.textContent = `💵 Total a pagar: $${total.toFixed(2)} USD`;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      renderCart();
+    }
+
+    function clearCart() {
+      if (confirm("¿Estás seguro de que deseas vaciar el carrito?")) {
+        cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        renderCart();
+      }
+    }
+
+    function sendToWhatsApp() {
+      if (cart.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+      }
+
+      let message = "🛍 Pedido desde la tienda virtual:%0A";
+      cart.forEach(p => {
+        message += `• ${p.nombre} x${p.cantidad} - $${(p.precio * p.cantidad).toFixed(2)} USD%0A`;
+      });
+      const total = cart.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
+      message += `%0A💵 Total: $${total.toFixed(2)} USD`;
+
+      window.open(`https://wa.me/5350283334?text=${message}`, "_blank");
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

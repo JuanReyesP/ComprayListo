@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Mi Tienda</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f8fb;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #003b6e 0%, #c2e9fb 100%);
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      color: white;
+      margin: 0;
+      font-size: 24px;
+    }
+    .logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .contact-text {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    a.whatsapp {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.whatsapp:hover {
+      background: #1ebd5a;
+    }
+    .contact-images {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    .contact-images img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+    footer {
+  background: #004785;
+  color: #fff;
+  padding: 40px 20px 10px;
+  font-size: 15px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #cde0f7;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+    }
+
+    @media (max-width: 600px) {}
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header-left {
+    justify-content: center;
+  }
+  .header-nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="https://previews.123rf.com/images/danilzorin/danilzorin1803/danilzorin180300142/97068520-online-shop-online-store-logo-logotype-for-business-isolated-vector-illustration.jpg" alt="Logo de la tienda" class="logo">
+      <h1>ComprayListo R&V</h1>
+    </div>
+    <nav class="header-nav">
+      <a href="inicio.html">🏠 Inicio</a>
+      <a href="productos.html">🏭 Productos</a>
+      <a href="carrito.html">🛒 Carrito (<span id="cart-count">0</span>)</a>
+      <a href="contacto.html">📞 Contacto</a>
+      <a href="Usuario.html">👤 Usuario</a>
+    </nav>
+    <a href="https://wa.me/5350283334" target="_blank" style="position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; padding: 12px 16px; border-radius: 50px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-size: 16px; text-decoration: none; z-index: 999;">
+      💬 WhatsApp
+    </a>
+  </header>
+
+  <main>
+    <div class="contact-text">
+      <h2>Contáctanos</h2>
+      <p>¿Tienes preguntas o necesitas ayuda? Estamos aquí para ti.</p>
+      <p>Escríbenos por WhatsApp y te responderemos lo antes posible.</p>
+      <a href="https://wa.me/5350283334" class="whatsapp" target="_blank">Hablar por WhatsApp</a>
+    </div>
+    <div class="contact-images">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqDt80i8HXgM_yJPIUs2JteMnKICX8Orv_Mg&s" alt="Persona hablando por teléfono">
+      <img src="https://img.freepik.com/fotos-premium/joven-empresario-confiado-usando-telefono-celular-ciudad_255667-29472.jpg" alt="Persona usando móvil">
+    </div>
+  </main>
+
+  <section style="padding: 40px 20px; background: #ffffff;">
+  <h3 style="text-align: center; font-size: 26px; margin-bottom: 30px;">❓ Preguntas Frecuentes</h3>
+  <div style="max-width: 700px; margin: auto;">
+    <details style="margin-bottom: 15px;">
+      <summary style="font-weight: bold; cursor: pointer;">¿Cuánto tarda el envío?</summary>
+      <p style="margin-top: 10px;">Entre 1 y 2 días hábiles dependiendo de la ubicación.</p>
+    </details>
+    <details style="margin-bottom: 15px;">
+      <summary style="font-weight: bold; cursor: pointer;">¿Puedo pagar vía Zelle?</summary>
+      <p style="margin-top: 10px;">Sí, aceptamos pagos en efectivo, CUP, USD y vía Zelle.</p>
+    </details>
+    <details style="margin-bottom: 15px;">
+      <summary style="font-weight: bold; cursor: pointer;">¿Cuentan con servicio de mensajería?</summary>
+      <p style="margin-top: 10px;">Sí, contamos con servicio de mensajería en dependencia de donde viva.</p>
+    </details>
+  </div>
+</section>
+
+<main style="padding: 10px 20px; max-width: 500px; margin: auto; background: rgb(184, 179, 179); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+  <h2 style="text-align: center; margin-bottom: 20px;">Contáctanos</h2>
+  <p style="text-align: center; font-size: 16px; margin-bottom: 30px;">¿Tienes preguntas o sugerencias? Envíanos un mensaje directo desde aquí o por WhatsApp.</p>
+
+  <form action="https://formspree.io/f/myzjvlry" method="POST" style="display: grid; gap: 15px;">
+    <input type="text" name="name" placeholder="Tu nombre completo" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+    <input type="email" name="email" placeholder="Tu correo electrónico" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+    <textarea name="message" placeholder="Escribe tu mensaje aquí..." required rows="5" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+    
+    <button type="submit" style="background: #005eb8; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.3s ease;">📨 Enviar Mensaje</button>
+  </form>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  document.getElementById("form-contacto").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    this.reset(); // Limpia el formulario
+
+    Swal.fire({
+      title: '¡Mensaje enviado con éxito!',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#004785',
+      backdrop: true,
+      timer: 2000,
+      timerProgressBar: true,
+      didClose: () => {
+        window.location.href = "inicio.html";
+      }
+    });
+  });
+</script>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>ComprayListo R&V</h3>
+      <p>Tienda virtual de confianza con los mejores productos del hogar.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contáctanos</h4>
+      <p>📞 +53 5028 3334</p>
+      <p>📩 juansireyes98@gmail.com</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/?size=512&id=47936&format=png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/87/87390.png" alt="Instagram"></a>
+        <a href="#"><img src="https://img.icons8.com/?size=512&id=44418&format=png" alt="WhatsApp"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 ComprayListo R&V. Todos los derechos reservados.</p>
+  </div>
+</footer>
+</body>
+</html>
